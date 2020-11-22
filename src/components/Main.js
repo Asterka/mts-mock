@@ -1,10 +1,13 @@
-import React from 'react'
-import SearchItemSection from "./SearchItemSection"
+import React from 'react';
+import SearchItemSection from "./SearchItemSection";
+import DescriptionSection from "./DescriptionSection";
 
 export default function Main() {
     return (
-        <>
-          <SearchItemSection/>  
-        </>
+        <div className="main">
+          <SearchItemSection/>
+          <DescriptionSection/>
+          <hr />
+        </div>
     )
 }

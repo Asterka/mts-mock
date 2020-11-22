@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'MTSSans';
+    src: url('../static/MTSSans-Bold.otf') format('opentype'),
+}
+
+.search-component{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0px;
+    h2{
+        font-family: "MTSSans";
+        font-size: 32px;
+        line-height: 36px;
+        padding-left: calc(#{$header_padding} - 0.25vh);
+    }
+    input{
+        position: relative;
+        right: 32px;
+        width: 40%;
+        height: 5%;
+    }
+}

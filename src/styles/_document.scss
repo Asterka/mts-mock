@@ -1,6 +1,5 @@
-.table-description {
-    width: 100%;
-    top: 159px;
+.document {
+    width: calc(100% - 64px);
     #number{
         font-family: MTS Sans;
         width: 20%;
@@ -8,7 +7,7 @@
         line-height: 16px;
         color: #A9B4C4;
         position: absolute;
-        left: calc(32px + 6.25vw);
+        left: calc(32px + 6.25vh);
     }
     #first{
         font-family: MTS Sans;
@@ -17,7 +16,7 @@
         line-height: 16px;
         color: #A9B4C4;
         position: absolute;
-        left: calc(32px + 6.25vw + 20%);
+        left: calc(32px + 6.25vh + 20%);
     }
     #second{
         font-family: MTS Sans;
@@ -26,7 +25,7 @@
         line-height: 16px;
         color: #A9B4C4;
         position: absolute;
-        left: calc(32px + 6.25vw + 53%);
+        left: calc(32px + 6.25vh + 53%);
     }
     #third{
         font-family: MTS Sans;
@@ -35,6 +34,6 @@
         line-height: 16px;
         color: #A9B4C4;
         position: absolute;
-        left: calc(32px + 6.25vw + 65%);
+        left: calc(32px + 6.25vh + 65%);
     }
 }

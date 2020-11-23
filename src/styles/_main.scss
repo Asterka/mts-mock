@@ -1,6 +1,14 @@
+.main{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
 hr{
+    position: absolute;
+    top: 140px;
     margin-left: 32px;
     width: calc(100% - 64px);
     border: 1px solid #E4E8EF;
 };
 @import 'table_description';
+@import 'document';

@@ -1,22 +1,22 @@
 .documents {
     width: calc(100% - 64px);
     position: absolute;
-    top: 160px;
+    top: 140px;
     display: flex;
     flex-direction: column; 
     left: 32px;
     .document{
         font-family: MTSSansReg;
-        *{font-size: 14px;
-            color: black;
-        }
         border-radius: 8px;
-        border: 1px solid black;
+        border-top: 1px solid #E4E8EF;
+        border-bottom: 1px solid #E4E8EF;
         height: 6.25vh;
         display: flex;
         align-items: center;
         min-height: 35px;
         *{
+            font-size: 14px;
+            color: black;
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
@@ -41,6 +41,17 @@
             color: chocolate;
             position: absolute;
             left: calc(71.25vw);
+        }
+        .show_more{
+            *{color: #DADADA;
+                
+            font-size: 20px;
+            }
+            position: absolute;
+            right: 32px;
+            &:hover{
+                *{color: #242424;}
+            }
         }
     }
 }

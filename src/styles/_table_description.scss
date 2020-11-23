@@ -4,7 +4,10 @@
     *{
         font-family: MTSSansReg;
         font-size: 14px;
-        }
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
 
     #number{
         width: 20%;
@@ -14,21 +17,21 @@
         left: calc(32px + 6.25vw);
     }
     #first{
-        width: 33%;
+        width: 35.5%;
         line-height: 16px;
         color: #A9B4C4;
         position: absolute;
         left: calc(32px + 26.25vw);
     }
     #second{
-        width: 16.5%;
+        width: 11.7%;
         line-height: 16px;
         color: #A9B4C4;
         position: absolute;
         left: calc(32px + 60vw);
     }
     #third{
-        width: 25%;
+        width: 10%;
         line-height: 16px;
         color: #A9B4C4;
         position: absolute;

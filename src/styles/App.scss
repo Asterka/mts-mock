@@ -11,6 +11,9 @@
     margin: 0;
     color: black;
 }
+@media all and (orientation:landscape) {
+    
+}
 
 @import "header";
 @import 'search_component';

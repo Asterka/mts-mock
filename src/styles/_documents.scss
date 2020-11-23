@@ -3,9 +3,8 @@
     position: absolute;
     top: 160px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     left: 32px;
-    min-width: 900px;
     .document{
         font-family: MTSSansReg;
         *{font-size: 14px;
@@ -17,24 +16,28 @@
         display: flex;
         align-items: center;
         min-height: 35px;
-        min-width: 900px;
+        *{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
         .number{
             width: 20%;
             position: relative;
             left: calc(6.25vw);
         }
         .client_name{
-            width: 33%;
+            width: 35.5%;
             position: absolute;
             left: calc(26.25vw);
         }
         .issue_date{
-            width: 16.5%;
+            width: 11.7%;
             position: absolute;
             left: calc(60vw);
         }
         .issue_status{
-            width: 25%;
+            width: 10%;
             color: chocolate;
             position: absolute;
             left: calc(71.25vw);

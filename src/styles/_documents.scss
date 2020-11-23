@@ -4,45 +4,38 @@
     top: 160px;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;   
     left: 32px;
+    min-width: 900px;
     .document{
+        font-family: MTSSansReg;
+        *{font-size: 14px;
+            color: black;
+        }
+        border-radius: 8px;
         border: 1px solid black;
         height: 6.25vh;
         display: flex;
         align-items: center;
+        min-height: 35px;
+        min-width: 900px;
         .number{
-            font-family: MTS Sans;
             width: 20%;
-            font-size: 14px;
-            line-height: 16px;
             position: relative;
             left: calc(6.25vw);
         }
         .client_name{
-            font-family: MTS Sans;
             width: 33%;
-            font-size: 14px;
-            line-height: 16px;
-            color: #A9B4C4;
             position: absolute;
             left: calc(26.25vw);
         }
         .issue_date{
-            font-family: MTS Sans;
             width: 16.5%;
-            font-size: 14px;
-            line-height: 16px;
-            color: #A9B4C4;
             position: absolute;
             left: calc(60vw);
         }
         .issue_status{
-            font-family: MTS Sans;
             width: 25%;
-            font-size: 14px;
-            line-height: 16px;
-            color: #A9B4C4;
+            color: chocolate;
             position: absolute;
             left: calc(71.25vw);
         }

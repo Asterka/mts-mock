@@ -4,7 +4,8 @@ $header_padding: 32px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-position: relative;
+position: sticky;
+z-index: 100;
 
 //
 height: 6.25vh;

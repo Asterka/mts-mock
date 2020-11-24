@@ -4,37 +4,84 @@ import Document from './Document';
 import {v4 as uuidv4} from "uuid"
 
 function filterDocs (query, documents){
-    const res = documents.filter((element)=>
-        element.clientName.toLowerCase().indexOf(query) !== -1
-    )
-    
-
+    let hasNumbers = false;
+    hasNumbers = /\d/.test(query);
+    let res = [];
+    if(!hasNumbers){
+        res = documents.filter((element)=>
+            element.clientName.toLowerCase().indexOf(query) !== -1
+        )
+    }
+    else{
+        res = documents.filter((element)=>
+            element.number.toLowerCase().indexOf(query) !== -1
+        )
+    }
     return res;
 }
+function sortDocs (sortBy, documents){
+    let res = [];
+    switch(sortBy){
+        case 0:
+            return documents;
+        case 1://sort by number ascending
+            res = documents.sort((a, b)=>{
+                if (a.number > b.number) {
+                    return 1;
+                  }
+                  if (a.number < b.number) {
+                    return -1;
+                  }
+                  return 0;
+            });
+            return res;
+        case -1://sort by number descending
+            res = documents.sort((a, b)=>{
+                if (a.number < b.number) {
+                    return 1;
+                }
+                if (a.number > b.number) {
+                    return -1;
+                }
+                return 0;
+            });
+        return res;
+        case 2: // sort by family ascending
+            res = documents.sort((a, b)=>{
+                if (a.clientName > b.clientName) {
+                    return 1;
+                }
+                if (a.clientName < b.clientName) {
+                    return -1;
+                }
+                return 0;
+            });
+            return res;
+        case -2:// sort by family descending
+            res = documents.sort((a, b)=>{
+                if (a.clientName < b.clientName) {
+                    return 1;
+                }
+                if (a.clientName > b.clientName) {
+                    return -1;
+                }
+                return 0;
+            });
+            return res;
+        case 3://sort by issued ascending
+            break;
+        case -3://sort by issued ascending
+            break;
+        
+    }
+}
 
-export default function Documents({number, clientName, issueDate, issueStatus, query}) {
-    const documents = [
-        {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"},
-
-        {number:"32654812672", clientName:"Лебедева Светлана Ивановна",issueDate:"",issueStatus:"Ожидает подписания"},
-
-        {number:"3265409529", clientName:"Веселов Роман Александрович",issueDate:"16.10.2020",issueStatus:"Подписан"},
-       
-        {number:"3265367895", clientName:"Росляков Михаил Игоревич",issueDate:"16.10.2020",issueStatus:"Подписан"},
-
-        {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"},
-
-        {number:"32654812672", clientName:"Лебедева Светлана Ивановна",issueDate:"",issueStatus:"Ожидает подписания"},
-
-        {number:"3265409529", clientName:"Веселов Роман Александрович",issueDate:"16.10.2020",issueStatus:"Подписан"},
-       
-        {number:"3265367895", clientName:"Росляков Михаил Игоревич",issueDate:"16.10.2020",issueStatus:"Подписан"},
-        {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"}
-    ]
+export default function Documents({query, docs, sortBy}) {
     
-    let docs = filterDocs(query, documents)
+    let queriedDocs = filterDocs(query, docs)
+    queriedDocs = sortDocs(sortBy, queriedDocs);
     
-    docs = docs.map((element)=>{
+    queriedDocs = queriedDocs.map((element)=>{
         return(
             <Document key={uuidv4()} number={element.number} clientName={element.clientName} issueDate={element.issueDate} issueStatus={element.issueStatus}/>
         )
@@ -42,7 +89,7 @@ export default function Documents({number, clientName, issueDate, issueStatus, q
 
     return (
             <div className="documents">
-                {docs}
+                {queriedDocs}
             </div>
     )
 }

@@ -1,5 +1,6 @@
 .table-description {
     width: 100%;
+    
     top: 159px;
     *{
         font-family: MTSSansReg;
@@ -8,31 +9,13 @@
         white-space: nowrap;
         overflow: hidden;
     }
-    .arrows *{
-        color: #A9B4C4;
+    h2{
+        *{color: #A9B4C4;
         height: 16px;
         width: 32px;
         :hover{
             color: slategray;
-        }
-    }
-    .arrows{
-        #sort-by-number{
-            position: absolute;
-            left: calc(32px + 6.25vw + 14px);
-        }
-        #sort-by-client{
-            position: absolute;
-            left: calc(32px + 26.25vw + 42px);
-        }
-        #sort-by-issue{
-            position: absolute;
-            left: calc(32px + 60vw + 76px);
-        }
-        #sort-by-issue-date{
-            position: absolute;
-            left: calc(32px + 71.25vw + 40px);
-        }
+        }}
     }
 
     #number{
@@ -50,7 +33,7 @@
         left: calc(32px + 26.25vw);
     }
     #second{
-        width: 11.7%;
+        width: calc(11.7% - 20px);
         line-height: 16px;
         color: #A9B4C4;
         position: absolute;

@@ -1,11 +1,12 @@
 import React from 'react'
 
-export default function PageNavigation({currentPage, setCurrentPage}) {
+export default function PageNavigation({currentPage, setCurrentPage, numberOfPages}) {
     return (
         <div className={"footer__nav"}>
-            <button onClick={()=>{setCurrentPage(currentPage - 1)}}>-</button>
+            <button onClick={()=>{currentPage === 0?setCurrentPage(0):setCurrentPage(currentPage - 1)}}>-</button>
                 <h3>{currentPage}</h3>
-            <button onClick={()=>{setCurrentPage(currentPage + 1)}}>+</button>
+                {console.log(numberOfPages)}
+            <button onClick={()=>{currentPage === numberOfPages?setCurrentPage(numberOfPages):setCurrentPage(currentPage + 1)}}>+</button>
         </div>
     )
 }

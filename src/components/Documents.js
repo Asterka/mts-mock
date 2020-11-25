@@ -108,9 +108,10 @@ function sortDocs (sortBy, documents){
 export default function Documents({query, docs, sortBy, currentPage, setCurrentPage}) {
     
     let queriedDocs = filterDocs(query, docs)
-    queriedDocs = sortDocs(sortBy, queriedDocs);
-    
-    queriedDocs = queriedDocs.map((element)=>{
+    queriedDocs = sortDocs(sortBy, queriedDocs, currentPage);
+    //some BS, TODO
+    queriedDocs = queriedDocs.slice((currentPage)*9, (currentPage+1)*9>queriedDocs.length?queriedDocs.length: (currentPage+1)*9).map((element)=>{
+        
         return(
             <Document key={uuidv4()} number={element.number} clientName={element.clientName} issueDate={element.issueDate} issueStatus={element.issueStatus}/>
         )
@@ -119,7 +120,7 @@ export default function Documents({query, docs, sortBy, currentPage, setCurrentP
     return (
             <div className="documents">
                 {queriedDocs}
-                <Footer currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+                <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={queriedDocs.length/9}/>
             </div>
     )
 }

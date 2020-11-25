@@ -7,7 +7,7 @@ import PageNavigation from './PageNavigation';
 export default function Main() {
     const [query, setQuery] = useState("");
     const [sortBy, setSortBy] = useState(0);
-    const [currentPage, setCurrentPage] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
 
     const [docs, setDocs] = useState([
 
@@ -27,6 +27,10 @@ export default function Main() {
        
         {number:"3265367895", clientName:"Росляков Михаил Игоревич",issueDate:"16.10.2020",issueStatus:"Подписан"},
         
+        {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"},
+
+        {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"},
+
         {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"}
     ]);
 

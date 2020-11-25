@@ -20,7 +20,8 @@ function filterDocs (query, documents){
     }
     return res;
 }
-function sortDocs (sortBy, documents){
+function sortDocs (sortBy, documents, setCurrentPage){
+    //setCurrentPage(1);
     let res = [];
     switch(sortBy){
         case 0:
@@ -108,10 +109,11 @@ function sortDocs (sortBy, documents){
 export default function Documents({query, docs, sortBy, currentPage, setCurrentPage}) {
     
     let queriedDocs = filterDocs(query, docs)
-    queriedDocs = sortDocs(sortBy, queriedDocs, currentPage);
+    queriedDocs = sortDocs(sortBy, queriedDocs, setCurrentPage);
+    let docsToDraw = queriedDocs.slice((currentPage-1)*9, (currentPage)*9 > queriedDocs.length - 1 ? queriedDocs.length: (currentPage)*9-1)
+    console.log(docsToDraw.length);
     //some BS, TODO
-    queriedDocs = queriedDocs.slice((currentPage)*9, (currentPage+1)*9>queriedDocs.length?queriedDocs.length: (currentPage+1)*9).map((element)=>{
-        
+    docsToDraw = docsToDraw.map((element)=>{
         return(
             <Document key={uuidv4()} number={element.number} clientName={element.clientName} issueDate={element.issueDate} issueStatus={element.issueStatus}/>
         )
@@ -119,8 +121,8 @@ export default function Documents({query, docs, sortBy, currentPage, setCurrentP
 
     return (
             <div className="documents">
-                {queriedDocs}
-                <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={queriedDocs.length/9}/>
+                {docsToDraw}
+                <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={Math.ceil(queriedDocs.length/9)}/>
             </div>
     )
 }

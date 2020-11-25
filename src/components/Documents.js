@@ -1,5 +1,6 @@
 import React from 'react';
 import Document from './Document';
+import Footer from './Footer';
 
 import {v4 as uuidv4} from "uuid"
 
@@ -69,14 +70,42 @@ function sortDocs (sortBy, documents){
             });
             return res;
         case 3://sort by issued ascending
-            break;
+            res = documents.sort((a, b)=>{
+                let firstDate = a.issueDate.split('.');
+                let secondDate = b.issueDate.split('.');
+                let dateA = Date(`${firstDate[2]}-${firstDate[1]}-${firstDate[0]}`)
+                let dateB = Date(`${secondDate[2]}-${secondDate[1]}-${secondDate[0]}`)
+                
+                if (dateA < dateB) {
+                    return 1;
+                }
+                if (dateA > dateB) {
+                    return -1;
+                }
+                return 0;
+            });
+            return res;
         case -3://sort by issued ascending
-            break;
+        res = documents.sort((a, b)=>{
+            let firstDate = a.issueDate.split('.');
+            let secondDate = b.issueDate.split('.');
+            let dateA = Date(`${firstDate[2]}-${firstDate[1]}-${firstDate[0]}`)
+            let dateB = Date(`${secondDate[2]}-${secondDate[1]}-${secondDate[0]}`)
+            
+            if (dateA > dateB) {
+                return 1;
+            }
+            if (dateA < dateB) {
+                return -1;
+            }
+            return 0;
+        });
+        return res;
         
     }
 }
 
-export default function Documents({query, docs, sortBy}) {
+export default function Documents({query, docs, sortBy, currentPage, setCurrentPage}) {
     
     let queriedDocs = filterDocs(query, docs)
     queriedDocs = sortDocs(sortBy, queriedDocs);
@@ -90,6 +119,7 @@ export default function Documents({query, docs, sortBy}) {
     return (
             <div className="documents">
                 {queriedDocs}
+                <Footer currentPage={currentPage} setCurrentPage={setCurrentPage}/>
             </div>
     )
 }

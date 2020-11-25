@@ -3,9 +3,11 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import SearchItemSection from "./SearchItemSection";
 import DescriptionSection from "./DescriptionSection";
 import Documents from './Documents';
+import PageNavigation from './PageNavigation';
 export default function Main() {
     const [query, setQuery] = useState("");
     const [sortBy, setSortBy] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
 
     const [docs, setDocs] = useState([
 
@@ -32,7 +34,7 @@ export default function Main() {
         <div className="main">
           <SearchItemSection query={query} setQuery={setQuery}/>
           <DescriptionSection docs={docs} setDocs={setDocs} sortBy={sortBy} setSortBy={setSortBy}/>
-          <Documents query={query} docs={docs} setDocs={setDocs} sortBy={sortBy}/>
+          <Documents query={query} docs={docs} setDocs={setDocs} sortBy={sortBy} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
           <hr />
         </div>
     )

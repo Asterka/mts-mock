@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/mts-mock/static/css/main.5b585e5e.chunk.css",
-    "main.js": "/mts-mock/static/js/main.18a7e4f0.chunk.js",
-    "main.js.map": "/mts-mock/static/js/main.18a7e4f0.chunk.js.map",
+    "main.css": "/mts-mock/static/css/main.38608d40.chunk.css",
+    "main.js": "/mts-mock/static/js/main.d03fc93e.chunk.js",
+    "main.js.map": "/mts-mock/static/js/main.d03fc93e.chunk.js.map",
     "runtime-main.js": "/mts-mock/static/js/runtime-main.c7ccfa5d.js",
     "runtime-main.js.map": "/mts-mock/static/js/runtime-main.c7ccfa5d.js.map",
-    "static/js/2.19736185.chunk.js": "/mts-mock/static/js/2.19736185.chunk.js",
-    "static/js/2.19736185.chunk.js.map": "/mts-mock/static/js/2.19736185.chunk.js.map",
+    "static/js/2.c6318167.chunk.js": "/mts-mock/static/js/2.c6318167.chunk.js",
+    "static/js/2.c6318167.chunk.js.map": "/mts-mock/static/js/2.c6318167.chunk.js.map",
     "index.html": "/mts-mock/index.html",
-    "static/css/main.5b585e5e.chunk.css.map": "/mts-mock/static/css/main.5b585e5e.chunk.css.map",
-    "static/js/2.19736185.chunk.js.LICENSE.txt": "/mts-mock/static/js/2.19736185.chunk.js.LICENSE.txt",
+    "static/css/main.38608d40.chunk.css.map": "/mts-mock/static/css/main.38608d40.chunk.css.map",
+    "static/js/2.c6318167.chunk.js.LICENSE.txt": "/mts-mock/static/js/2.c6318167.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/mts-mock/static/media/MTSSans-Regular.a4de6c3c.otf"
   },
   "entrypoints": [
     "static/js/runtime-main.c7ccfa5d.js",
-    "static/js/2.19736185.chunk.js",
-    "static/css/main.5b585e5e.chunk.css",
-    "static/js/main.18a7e4f0.chunk.js"
+    "static/js/2.c6318167.chunk.js",
+    "static/css/main.38608d40.chunk.css",
+    "static/js/main.d03fc93e.chunk.js"
   ]
 }

@@ -1,15 +1,16 @@
 import React,{useState} from 'react';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import ReaderComponent from './ReaderComponent';
 import SearchItemSection from "./SearchItemSection";
 import DescriptionSection from "./DescriptionSection";
 import Documents from './Documents';
-import PageNavigation from './PageNavigation';
+//import PageNavigation from './PageNavigation';
 export default function Main() {
     const [query, setQuery] = useState("");
     const [sortBy, setSortBy] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const [docs, setDocs] = useState([
+    const [docs, setDocs] = useState([ 
 
         {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"},
 

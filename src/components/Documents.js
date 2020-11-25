@@ -10,7 +10,7 @@ function filterDocs (query, documents){
     let res = [];
     if(!hasNumbers){
         res = documents.filter((element)=>
-            element.clientName.toLowerCase().indexOf(query) !== -1
+            element.clientName.toLowerCase().indexOf(query.toLowerCase()) !== -1
         )
     }
     else{

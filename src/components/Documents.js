@@ -132,9 +132,13 @@ export default function Documents({query, docs, sortBy, currentPage, setCurrentP
     });
 
     return (
+        <>
             <div className="documents">
                 {docsToDraw}
-                <div class="footer"><Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={Math.ceil(queriedDocs.length/9)}/></div>
             </div>
+
+            <div class="footer"><Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={Math.ceil(queriedDocs.length/9)}/></div>
+            
+        </>
     )
 }

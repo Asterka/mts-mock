@@ -1,15 +1,10 @@
 .main{
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: calc(6.25vh * 13); 
-    min-height: 390px;
-    .footer{
-        position: absolute;
-        bottom: calc(-6.25vh - 32px);
-    }
-
+    height: calc(6.25vh*10 + 112px); 
+    min-height: 500px;
 }
 hr{
     position: absolute;

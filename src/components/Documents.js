@@ -1,6 +1,7 @@
 import React from 'react';
 import Document from './Document';
 import Footer from './Footer';
+import ReactDOM from 'react-dom'
 
 import {v4 as uuidv4} from "uuid"
 
@@ -20,7 +21,7 @@ function filterDocs (query, documents){
     }
     return res;
 }
-function sortDocs (sortBy, documents, setCurrentPage){
+function sortDocs (sortBy, documents, setCurrentPage, setQueriedDocs){
     //setCurrentPage(1);
     let res = [];
     switch(sortBy){
@@ -36,6 +37,8 @@ function sortDocs (sortBy, documents, setCurrentPage){
                   }
                   return 0;
             });
+
+            console.log(res);
             return res;
         case -1://sort by number descending
             res = documents.sort((a, b)=>{
@@ -47,6 +50,8 @@ function sortDocs (sortBy, documents, setCurrentPage){
                 }
                 return 0;
             });
+
+            console.log(res);
         return res;
         case 2: // sort by family ascending
             res = documents.sort((a, b)=>{
@@ -58,6 +63,8 @@ function sortDocs (sortBy, documents, setCurrentPage){
                 }
                 return 0;
             });
+
+            console.log(res);
             return res;
         case -2:// sort by family descending
             res = documents.sort((a, b)=>{
@@ -69,6 +76,8 @@ function sortDocs (sortBy, documents, setCurrentPage){
                 }
                 return 0;
             });
+
+            console.log(res);
             return res;
         case 3://sort by issued ascending
             res = documents.sort((a, b)=>{
@@ -85,6 +94,8 @@ function sortDocs (sortBy, documents, setCurrentPage){
                 }
                 return 0;
             });
+
+            console.log(res);
             return res;
         case -3://sort by issued ascending
         res = documents.sort((a, b)=>{
@@ -101,17 +112,18 @@ function sortDocs (sortBy, documents, setCurrentPage){
             }
             return 0;
         });
+        console.log(res);
         return res;
         
     }
 }
 
-export default function Documents({query, docs, sortBy, currentPage, setCurrentPage}) {
+export default function Documents({query, docs, sortBy, currentPage, setCurrentPage, setQueriedDocs}) {
     
-    let queriedDocs = filterDocs(query, docs)
+    let queriedDocs = filterDocs(query, docs, setQueriedDocs)
     queriedDocs = sortDocs(sortBy, queriedDocs, setCurrentPage);
+
     let docsToDraw = queriedDocs.slice((currentPage-1)*9, (currentPage)*9 > queriedDocs.length - 1 ? queriedDocs.length: (currentPage)*9-1)
-    console.log(docsToDraw.length);
     //some BS, TODO
     docsToDraw = docsToDraw.map((element)=>{
         return(
@@ -122,7 +134,7 @@ export default function Documents({query, docs, sortBy, currentPage, setCurrentP
     return (
             <div className="documents">
                 {docsToDraw}
-                <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={Math.ceil(queriedDocs.length/9)}/>
+                <div class="footer"><Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={Math.ceil(queriedDocs.length/9)}/></div>
             </div>
     )
 }

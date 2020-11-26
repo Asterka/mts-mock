@@ -39,8 +39,14 @@ export default function Main() {
         <div className="main">
           <SearchItemSection query={query} setQuery={setQuery}/>
           <DescriptionSection docs={docs} setDocs={setDocs} sortBy={sortBy} setSortBy={setSortBy}/>
-          <Documents query={query} docs={docs} setDocs={setDocs} sortBy={sortBy} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+          <Documents query={query} 
+                        docs={docs} 
+                            setDocs={setDocs} 
+                                sortBy={sortBy} 
+                                    currentPage={currentPage} 
+                                        setCurrentPage={setCurrentPage}/>
           <hr />
+          
         </div>
     )
 }

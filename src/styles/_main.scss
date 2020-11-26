@@ -3,7 +3,13 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    
+    height: calc(6.25vh * 13); 
+    min-height: 390px;
+    .footer{
+        position: absolute;
+        bottom: calc(-6.25vh - 32px);
+    }
+
 }
 hr{
     position: absolute;
@@ -12,5 +18,6 @@ hr{
     width: calc(100% - 64px);
     border: 1px solid #E4E8EF;
 };
+
 @import 'table_description';
 @import 'documents';

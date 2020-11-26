@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/mts-mock/static/css/main.ebf66e84.chunk.css",
+    "main.css": "/mts-mock/static/css/main.ad1c9036.chunk.css",
     "main.js": "/mts-mock/static/js/main.06f65d59.chunk.js",
     "main.js.map": "/mts-mock/static/js/main.06f65d59.chunk.js.map",
     "runtime-main.js": "/mts-mock/static/js/runtime-main.c7ccfa5d.js",
@@ -8,7 +8,7 @@
     "static/js/2.62d95914.chunk.js": "/mts-mock/static/js/2.62d95914.chunk.js",
     "static/js/2.62d95914.chunk.js.map": "/mts-mock/static/js/2.62d95914.chunk.js.map",
     "index.html": "/mts-mock/index.html",
-    "static/css/main.ebf66e84.chunk.css.map": "/mts-mock/static/css/main.ebf66e84.chunk.css.map",
+    "static/css/main.ad1c9036.chunk.css.map": "/mts-mock/static/css/main.ad1c9036.chunk.css.map",
     "static/js/2.62d95914.chunk.js.LICENSE.txt": "/mts-mock/static/js/2.62d95914.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/mts-mock/static/media/MTSSans-Regular.a4de6c3c.otf",
     "static/media/test.b18a7546.pdf": "/mts-mock/static/media/test.b18a7546.pdf"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.c7ccfa5d.js",
     "static/js/2.62d95914.chunk.js",
-    "static/css/main.ebf66e84.chunk.css",
+    "static/css/main.ad1c9036.chunk.css",
     "static/js/main.06f65d59.chunk.js"
   ]
 }

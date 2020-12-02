@@ -1,8 +1,5 @@
 import React,{useState} from 'react';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import ReaderComponent from './ReaderComponent';
 import SearchItemSection from "./SearchItemSection";
-import DescriptionSection from "./DescriptionSection";
 import Documents from './Documents';
 //import PageNavigation from './PageNavigation';
 export default function Main() {
@@ -38,14 +35,15 @@ export default function Main() {
     return (
         <div className="main">
           <SearchItemSection query={query} setQuery={setQuery}/>
-          <DescriptionSection docs={docs} setDocs={setDocs} sortBy={sortBy} setSortBy={setSortBy}/>
           <Documents query={query} 
                         docs={docs} 
                             setDocs={setDocs} 
                                 sortBy={sortBy} 
                                     currentPage={currentPage} 
-                                        setCurrentPage={setCurrentPage}/>
-          <hr />
+                                        setCurrentPage={setCurrentPage}
+                                            setSortBy={setSortBy}/>
+        
+          
           
         </div>
     )

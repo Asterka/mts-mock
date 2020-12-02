@@ -1,7 +1,8 @@
 import React from 'react';
 import Document from './Document';
 import Footer from './Footer';
-import ReactDOM from 'react-dom'
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+
 
 import {v4 as uuidv4} from "uuid"
 
@@ -118,7 +119,7 @@ function sortDocs (sortBy, documents, setCurrentPage, setQueriedDocs){
     }
 }
 
-export default function Documents({query, docs, sortBy, currentPage, setCurrentPage, setQueriedDocs}) {
+export default function Documents({query, docs, sortBy, currentPage, setSortBy, setCurrentPage, setQueriedDocs}) {
     
     let queriedDocs = filterDocs(query, docs, setQueriedDocs)
     queriedDocs = sortDocs(sortBy, queriedDocs, setCurrentPage);
@@ -133,11 +134,24 @@ export default function Documents({query, docs, sortBy, currentPage, setCurrentP
 
     return (
         <>
-            <div className="documents">
+            <table className="table">
+                <thead>
+                    <tr>
+                    <td id="number">Nº<KeyboardArrowDownIcon id="sort-by-number" onClick={()=>sortBy==1?setSortBy(-1):setSortBy(1)}/></td>
+                    <td id="first">Клиент<KeyboardArrowDownIcon id="sort-by-client" onClick={()=>sortBy==2?setSortBy(-2):setSortBy(2)}/></td>
+                    <td id="second">Подписание<KeyboardArrowDownIcon id="sort-by-issue" onClick={()=>sortBy==3?setSortBy(-3):setSortBy(3)}/></td>
+                    <td id="third">Статус<KeyboardArrowDownIcon id="sort-by-issue-date" onClick={()=>sortBy==3?setSortBy(-3):setSortBy(3)}/></td>
+                    <td></td>
+                    </tr>
+                </thead>
+                <tbody>
                 {docsToDraw}
-            </div>
+                </tbody>
+                <tfoot>
+                <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={Math.ceil(queriedDocs.length/9)}/>
+                </tfoot>
+            </table>
 
-            <div class="footer"><Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={Math.ceil(queriedDocs.length/9)}/></div>
             
         </>
     )

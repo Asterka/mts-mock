@@ -11,10 +11,9 @@
     margin: 0;
     color: black;
 }
-@media all and (orientation:landscape) {
-    
-}
 
+@import '../node_modules/bulma/bulma.sass';
+@import 'documents';
 @import "header";
 @import 'search_component';
 @import 'main';

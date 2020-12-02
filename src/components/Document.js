@@ -3,14 +3,14 @@ import React from 'react'
 
 export default function Document({number, clientName, issueDate, issueStatus}) {
     return (
-            <div className="document">
-                <h2 className="number">{number}</h2>
-                <h2 className="client_name">{clientName}</h2>
-                <h2 className="issue_date">{issueDate}</h2>
-                <h2 className="issue_status" style={{color: issueStatus==="Подписан"?"#00C19B":"#FA8A64"}}>{issueStatus}</h2>
-                <div className="show_more">
+            <tr>
+                <td className="number1">{number}</td>
+                <td className="client_name">{clientName}</td>
+                <td className="issue_date">{issueDate}</td>
+                <td className="issue_status" style={{color: issueStatus==="Подписан"?"#00C19B":"#FA8A64"}}>{issueStatus}</td>
+                <td className="show_more">
                 <MoreVertIcon />
-                </div>
-            </div>
+                </td>
+            </tr>
     )
 }

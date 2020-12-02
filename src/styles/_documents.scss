@@ -1,54 +1,58 @@
-.documents {
-    width: calc(100% - 64px);
-    position: absolute;
-    top: 140px;
-    display: flex;
-    flex-direction: column; 
-    left: 32px;
-    .document{
-        font-family: MTSSansReg;
-        border-radius: 8px;
-        border-top: 1px solid #E4E8EF;
-        border-bottom: 1px solid #E4E8EF;
-        height: 6.25vh;
-        display: flex;
-        align-items: center;
-        min-height: 35px;
+.table{
+    width: calc(100% - 50px);
+    max-width: 1200px;
+    margin: auto;
+    tr{
+        width: 100%;
+    }
+    thead{
         *{
+            font-family: MTSSansReg;
+            font-size: 14px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            color: #A9B4C4;
+        }
+
+    }
+    tbody{
+        td.client_name::before{
+            content: "*";
+        }
+        *{
+            font-family: MTSSansReg;
             font-size: 14px;
             color: black;
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
         }
-        .number{
-            width: 20%;
-            position: absolute;
+        td.number1{
+            width: 15%;
+            
             left: calc(6.25vw);
         }
-        .client_name{
-            width: 35.5%;
-            position: absolute;
+        td.client_name{
+            width: 45%;
             left: calc(26.25vw);
         }
-        .issue_date{
-            width: 11.7%;
-            position: absolute;
+        td.issue_date{
+            width: 15.7%;
+            
             left: calc(60vw);
         }
-        .issue_status{
-            width: 10%;
+        td.issue_status{
+            width: 15%;
             color: chocolate;
-            position: absolute;
+            
             left: calc(71.25vw);
         }
-        .show_more{
+        td.show_more{
+            width:20px;
             *{color: #DADADA;
-                
             font-size: 20px;
             }
-            position: absolute;
-            right: 1.25vw;
             &:hover{
                 *{color: #242424;}
             }

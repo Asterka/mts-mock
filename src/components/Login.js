@@ -1,5 +1,4 @@
 import React, { useContext, createContext, useState } from "react";
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +8,6 @@ import {
   useHistory,
   useLocation
 } from "react-router-dom";
-
 import Header from "./Header";
 import LoginFrom from "./LoginFrom";
 import Main from "./Main";
@@ -17,7 +15,7 @@ import Main from "./Main";
 export default function AuthExample() {
   return (
     <ProvideAuth>
-      <Router>
+      <Router basename="mts-mock">
 
           <AuthButton />
           <Switch>
@@ -35,11 +33,13 @@ export default function AuthExample() {
 
 const fakeAuth = {
   isAuthenticated: false,
-  signin() {
+  signin(cb) {
     fakeAuth.isAuthenticated = true;
+    setTimeout(cb, 100); // fake async
   },
-  signout() {
+  signout(cb) {
     fakeAuth.isAuthenticated = false;
+    setTimeout(cb, 100);
   }
 };
 
@@ -101,6 +101,8 @@ function AuthButton() {
   );
 }
 
+// A wrapper for <Route> that redirects to the login
+// screen if you're not yet authenticated.
 function PrivateRoute({ children, ...rest }) {
   let auth = useAuth();
   return (

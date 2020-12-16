@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/mts-mock/static/css/main.65797da4.chunk.css",
-    "main.js": "/mts-mock/static/js/main.5dc59029.chunk.js",
-    "main.js.map": "/mts-mock/static/js/main.5dc59029.chunk.js.map",
+    "main.css": "/mts-mock/static/css/main.e3c9edd4.chunk.css",
+    "main.js": "/mts-mock/static/js/main.e9352121.chunk.js",
+    "main.js.map": "/mts-mock/static/js/main.e9352121.chunk.js.map",
     "runtime-main.js": "/mts-mock/static/js/runtime-main.c7ccfa5d.js",
     "runtime-main.js.map": "/mts-mock/static/js/runtime-main.c7ccfa5d.js.map",
-    "static/js/2.62d95914.chunk.js": "/mts-mock/static/js/2.62d95914.chunk.js",
-    "static/js/2.62d95914.chunk.js.map": "/mts-mock/static/js/2.62d95914.chunk.js.map",
+    "static/js/2.d625e2f0.chunk.js": "/mts-mock/static/js/2.d625e2f0.chunk.js",
+    "static/js/2.d625e2f0.chunk.js.map": "/mts-mock/static/js/2.d625e2f0.chunk.js.map",
     "index.html": "/mts-mock/index.html",
-    "static/css/main.65797da4.chunk.css.map": "/mts-mock/static/css/main.65797da4.chunk.css.map",
-    "static/js/2.62d95914.chunk.js.LICENSE.txt": "/mts-mock/static/js/2.62d95914.chunk.js.LICENSE.txt",
-    "static/media/App.scss": "/mts-mock/static/media/MTSSans-Regular.a4de6c3c.otf",
-    "static/media/test.b18a7546.pdf": "/mts-mock/static/media/test.b18a7546.pdf"
+    "static/css/main.e3c9edd4.chunk.css.map": "/mts-mock/static/css/main.e3c9edd4.chunk.css.map",
+    "static/js/2.d625e2f0.chunk.js.LICENSE.txt": "/mts-mock/static/js/2.d625e2f0.chunk.js.LICENSE.txt",
+    "static/js/pdf.worker.entry.65f3820a.worker.js": "/mts-mock/static/js/pdf.worker.entry.65f3820a.worker.js",
+    "static/js/pdf.worker.entry.65f3820a.worker.js.LICENSE.txt": "/mts-mock/static/js/pdf.worker.entry.65f3820a.worker.js.LICENSE.txt",
+    "static/js/pdf.worker.entry.65f3820a.worker.js.map": "/mts-mock/static/js/pdf.worker.entry.65f3820a.worker.js.map",
+    "static/media/App.scss": "/mts-mock/static/media/MTSSans-Bold.91499b0b.otf",
+    "test3.pdf": "/mts-mock/test3.pdf"
   },
   "entrypoints": [
     "static/js/runtime-main.c7ccfa5d.js",
-    "static/js/2.62d95914.chunk.js",
-    "static/css/main.65797da4.chunk.css",
-    "static/js/main.5dc59029.chunk.js"
+    "static/js/2.d625e2f0.chunk.js",
+    "static/css/main.e3c9edd4.chunk.css",
+    "static/js/main.e9352121.chunk.js"
   ]
 }

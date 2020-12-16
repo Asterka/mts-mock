@@ -1,7 +1,5 @@
 .table{
     width: calc(100% - 50px);
-    max-width: 1200px;
-    margin: auto;
     tr{
         width: 100%;
     }
@@ -17,9 +15,7 @@
 
     }
     tbody{
-        td.client_name::before{
-            content: "*";
-        }
+        
         *{
             font-family: MTSSansReg;
             font-size: 14px;
@@ -30,7 +26,7 @@
         }
         td.number1{
             width: 15%;
-            
+            height: 56px;
             left: calc(6.25vw);
         }
         td.client_name{
@@ -39,7 +35,6 @@
         }
         td.issue_date{
             width: 15.7%;
-            
             left: calc(60vw);
         }
         td.issue_status{

@@ -1,20 +1,21 @@
 @font-face {
     font-family: 'MTSSans';
-    src: url('../static/MTSSans-Bold.otf') format('opentype');
+    src: url('http://3.23.57.97/static/MTSSans-Bold.otf') format('opentype');
 }
 @font-face {
     font-family: 'MTSSansReg';
-    src: url('../static/MTSSans-Regular.otf') format('opentype');
+    src: url('http://3.23.57.97/static/MTSSans-Regular.otf') format('opentype');
 }
 *{
     padding: 0;
     margin: 0;
     color: black;
 }
-
 @import '../node_modules/bulma/bulma.sass';
 @import 'documents';
 @import "header";
 @import 'search_component';
 @import 'main';
 @import 'footer';
+@import 'react-pdf__Page';
+@import 'modal-window';

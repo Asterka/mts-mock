@@ -1,0 +1,21 @@
+.modal-window{
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+    position: absolute;
+    padding: 1rem;
+
+    span{
+        font-family: 'MTSSansReg' !important;
+        font-size: 16px !important;
+    }
+    .modal-window__document{
+        border: 2px solid #E4E8EF;
+        border-radius: 8px;
+        position: relative;
+        height: 50%;
+        width: 80%;
+        margin: 0 auto;
+        overflow-y: scroll;
+    }
+}

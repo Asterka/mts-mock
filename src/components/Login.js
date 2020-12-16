@@ -16,7 +16,6 @@ export default function AuthExample() {
   return (
     <ProvideAuth>
       <Router basename="mts-mock">
-
           <AuthButton />
           <Switch>
             <Route path="/login">
@@ -88,16 +87,9 @@ function AuthButton() {
 
   return auth.user ? (
     <p>
-      <button
-        onClick={() => {
-          auth.signout(() => history.push("/login"));
-        }}
-      >
-        Sign out
-      </button>
     </p>
   ) : (
-    <div><Link to="/main"></Link></div>
+    <div><Link to="/main">Click me</Link></div>
   );
 }
 
@@ -126,7 +118,7 @@ function PrivateRoute({ children, ...rest }) {
 
 function ProtectedPage() {
   return (<>
-    <Header/>
+    <Header useHistory={useHistory} useAuth={useAuth}/>
     <Main/>
   </>)
 }

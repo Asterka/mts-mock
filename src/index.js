@@ -13,8 +13,6 @@ import {
   useLocation
 } from "react-router-dom";
 
-import Header from './components/Header';
-import Main from './components/Main';
 import Login from './components/Login';
 
 ReactDOM.render(

@@ -19,6 +19,7 @@
         *{
             font-family: MTSSansReg;
             font-size: 14px;
+            height: 56px;
             color: black;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -26,7 +27,6 @@
         }
         td.number1{
             width: 15%;
-            height: 56px;
             left: calc(6.25vw);
         }
         td.client_name{
@@ -51,6 +51,16 @@
             &:hover{
                 *{color: #242424;}
             }
+        }
+        tr:hover{
+            animation: pulse 0.5s;
+            animation-fill-mode: forwards;
+        }
+        
+        .align-vertically{
+            height: 100%;
+            display:flex;
+            align-items:center;
         }
     }
 }

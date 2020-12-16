@@ -1,0 +1,66 @@
+
+@keyframes pulse {  
+    0% {
+      box-shadow: 0 0;
+    }
+    
+    70% {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+    
+    100% {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    } 
+    
+}
+
+
+// Cross-browsers opacity: @include opacity(0.5);
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// Transitions for all: @include transition($transition);
+$transition: all .3s ease;
+@mixin transition($value) {
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -ms-transition: $value;
+    -o-transition: $value;
+    transition: $value;
+}
+
+// Input placeholder animation: @include placeholder { color: #000 }
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+// How to use:
+input {
+    padding: 0 16px; 
+    text-overflow: ellipsis;
+    @include placeholder {
+        color: #DADADA;
+        transition: $transition;
+        @include opacity(1);
+    }
+    &:focus {
+        @include placeholder {
+            @include opacity(0);
+            transition: $transition;
+        }
+    }
+}

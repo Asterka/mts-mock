@@ -12,13 +12,14 @@ function closeModal(setOpenedModal) {
 
 export default function Document({number, clientName, issueDate, issueStatus, openedModal, setOpenedModal}) {
     return (
+            
             <tr>
-                <td className="number1">{number}</td>
-                <td className="client_name">{clientName}</td>
-                <td className="issue_date">{issueDate}</td>
-                <td className="issue_status" style={{color: issueStatus==="Подписан"?"#00C19B":"#FA8A64"}}>{issueStatus}</td>
-                <td className="show_more">
-                <MoreVertIcon onClick={openedModal===true?()=>{closeModal(setOpenedModal)}:()=>{openModal(setOpenedModal)}}/>
+                <td className="number1"><div className="align-vertically">{number}</div></td>
+                <td className="client_name"><div className="align-vertically">{clientName}</div></td>
+                <td className="issue_date"><div className="align-vertically">{issueDate}</div></td>
+                <td className="issue_status" style={{color: issueStatus==="Подписан"?"#00C19B":"#FA8A64"}}><div className="align-vertically">{issueStatus}</div></td>
+                <td className="show_more"><div className="align-vertically">
+                <MoreVertIcon onClick={openedModal===true?()=>{closeModal(setOpenedModal)}:()=>{openModal(setOpenedModal)}}/></div>
                 </td>
             </tr>
     )

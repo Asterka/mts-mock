@@ -7,30 +7,51 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import React, { Component } from 'react'
 
-const Header = () => {
+const Header = ({useHistory, useAuth}) => {
+    let history = useHistory();
+    let auth = useAuth();
 
     return (
-    <div className="navbar is-fluid">
-    <div className="level is-fluid">
-    <div className="level-left">
-    <div className="navbar-brand">
-        <a className="navbar-item" href="https://pagename.com">
-            <img id="logo" src="http://3.23.57.97/static/MTS_logo.png"></img>
-        </a>
-    </div>
-    </div>
-    <div className="level-right">
-            <div className="navbar-item">
-                            <NotificationsIcon/>
+
+    <div className="container is-fluid header">
+        <div className="level is-mobile" style={{width:"100%"}}>
+            <div className="level-left">
+                <div className="navbar-brand">
+                    <a className="navbar-item" href="https://pagename.com">
+                        <img id="logo" src="http://3.23.57.97/static/MTS_logo.png"></img>
+                    </a>
+                </div>
             </div>
-            <div className="navbar-item">
-                            <MoreVertIcon/>
+            <div className="level-right is-mobile">
+                    <div className="navbar-item">
+                                    <NotificationsIcon/>
+                    </div>
+                    <div className="navbar-item">
+                        
+                                    <MoreVertIcon/>
+                    </div>
+                    <div className="navbar-item">
+                                    <div className="dropdown is-hoverable">
+                                        <div className="dropdown-trigger">
+                                            <img style={{backgroundColor:"grey"}} src="http://localhost:5500/src/static/person.png" aria-haspopup="true" aria-controls="dropdown-menu4"/>
+                                        </div>
+                                        <div className="dropdown-menu"  style={{left: "-100px"}} id="dropdown-menu4" role="menu">
+
+                    <div className="dropdown-content">
+                      <div className="dropdown-item">
+                        <div className="menu">
+                          <p className="menu-label" onClick={()=>{ auth.signout(() => history.push("/login"))}}>
+                            Log out
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                                    </div>
+                    </div>
             </div>
-            <div className="navbar-item">
-                            <AccountCircleIcon/>
-            </div>
-    </div>
-    </div>
+        </div>
     </div>
 
 )

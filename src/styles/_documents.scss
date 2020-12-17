@@ -49,11 +49,13 @@
             *{justify-content: center;}
             &:hover{
                 *{  
-                color: #242424;}
+                color: #242424;
+                    
+            }
             }
         }
         tr:hover{
-            
+            border-radius: 8px;
             animation: pulse 0.5s;
             animation-fill-mode: forwards;
         }

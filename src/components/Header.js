@@ -31,7 +31,7 @@ const Header = ({useHistory, useAuth}) => {
                         
                                     <MoreVertIcon/>
                     </div>
-                    <div className="navbar-item ">
+                    <div className="navbar-item" >
                                     <div className="dropdown is-hoverable">
                                         <div className="dropdown-trigger">
                                             <AccountBoxIcon aria-haspopup="true" aria-controls="dropdown-menu4"/>

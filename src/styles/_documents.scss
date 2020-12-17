@@ -20,7 +20,6 @@
             font-family: MTSSansReg;
             font-size: 14px;
             height: 56px;
-            color: black;
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
@@ -39,8 +38,6 @@
         }
         td.issue_status{
             width: 15%;
-            color: chocolate;
-            
             left: calc(71.25vw);
         }
         td.show_more{
@@ -48,11 +45,15 @@
             *{color: #DADADA;
             font-size: 20px;
             }
+            
+            *{justify-content: center;}
             &:hover{
-                *{color: #242424;}
+                *{  
+                color: #242424;}
             }
         }
         tr:hover{
+            
             animation: pulse 0.5s;
             animation-fill-mode: forwards;
         }
@@ -61,6 +62,12 @@
             height: 100%;
             display:flex;
             align-items:center;
+        }
+        .align-vertically.is-signed{
+                color:rgb(0, 193, 155);
+        }
+        .align-vertically.is-not-signed{
+            color: rgb(250, 138, 100);
         }
     }
 }

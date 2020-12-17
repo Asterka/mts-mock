@@ -4,6 +4,7 @@ import {v4 as uuidv4} from "uuid"
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 import React, { Component } from 'react'
 
@@ -30,13 +31,13 @@ const Header = ({useHistory, useAuth}) => {
                         
                                     <MoreVertIcon/>
                     </div>
-                    <div className="navbar-item">
+                    <div className="navbar-item ">
                                     <div className="dropdown is-hoverable">
                                         <div className="dropdown-trigger">
-                                            <img style={{backgroundColor:"grey"}} src="http://localhost:5500/src/static/person.png" aria-haspopup="true" aria-controls="dropdown-menu4"/>
+                                            <AccountBoxIcon aria-haspopup="true" aria-controls="dropdown-menu4"/>
                                         </div>
                                         <div className="dropdown-menu"  style={{left: "-100px"}} id="dropdown-menu4" role="menu">
-
+                    
                     <div className="dropdown-content">
                       <div className="dropdown-item">
                         <div className="menu">

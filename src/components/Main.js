@@ -15,18 +15,17 @@ export default function Main({get_documents, token, userDetails}) {
     const [sortBy, setSortBy] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [openedModal, setOpenedModal] = useState(false);
-    const [isFetching, setIsFetching] = useState(true);
-    const [tokenAvailable, setTokenAvailable] = useState(false);
-
+    const [url, setUrl] = useState("http://3.23.57.97:8000/media");
     const [docs, setDocs] = useState([ 
     ]);
     // /media/{name}.{ext}
 
     useEffect(() => {
         if(userDetails !== null){
-            get_documents(token)
+            get_documents(token,'')
             .then(res => res.json())
                 .then(json => {
+                    console.log(json);
                     let loadedData = json;
                     loadedData = loadedData.filter((element)=>
                         element.users[0].id === userDetails.id)
@@ -56,10 +55,13 @@ export default function Main({get_documents, token, userDetails}) {
                                         setCurrentPage={setCurrentPage}
                                             setSortBy={setSortBy}
                                                 openedModal={openedModal}
-                                                    setOpenedModal={setOpenedModal}/>
+                                                    setOpenedModal={setOpenedModal}
+                                                        setUrl={setUrl}
+                                                            token={token}
+                                                        />
           
-          <Modal visible={openedModal} width="50%" height="80%" effect="fadeInUp" onClickAway={() => closeModal(setOpenedModal)}>
-                <ModalDocument/>
+            <Modal visible={openedModal} width="50%" height="80%" effect="fadeInUp" onClickAway={() => closeModal(setOpenedModal)}>
+                <ModalDocument url={url} token={token}/>
             </Modal>
         </div>
     )

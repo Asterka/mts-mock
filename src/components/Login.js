@@ -16,6 +16,16 @@ import Main from "./Main";
 export default function AuthExample() {
   const [token, setToken] = useState('');
   const [userDetails, setUserDetails] = useState(null);
+  //Get documents
+    function get_documents(token){
+      return fetch(`http://3.23.57.97:8000/documents/`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `JWT ${token}`
+          }
+        })
+    }
   return (
     <ProvideAuth userDetails={userDetails} setUserDetails={setUserDetails}>
       <Router basename="mts-mock">
@@ -65,16 +75,7 @@ function get_token (name, password){
     })
 }
 
-//Get documents
-function get_documents(token){
-  return fetch('http://3.23.57.97:8000/documents/', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `JWT ${token}`
-      }
-    })
-}
+
 
 function currentUser(token, setUserDetails){
   fetch('http://3.23.57.97:8000/users/current_user/', {

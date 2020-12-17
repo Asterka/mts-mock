@@ -119,7 +119,7 @@ function sortDocs (sortBy, documents, setCurrentPage, setQueriedDocs){
     }
 }
 
-export default function Documents({query, docs, sortBy, currentPage, setSortBy, setCurrentPage, setQueriedDocs, openedModal, setOpenedModal}) {
+export default function Documents({query, docs, sortBy, currentPage, setSortBy, setCurrentPage, setQueriedDocs, openedModal, setOpenedModal, setUrl, token}) {
     
     let queriedDocs = filterDocs(query, docs, setQueriedDocs)
     queriedDocs = sortDocs(sortBy, queriedDocs, setCurrentPage);
@@ -128,7 +128,16 @@ export default function Documents({query, docs, sortBy, currentPage, setSortBy, 
     //some BS, TODO
     docsToDraw = docsToDraw.map((element)=>{
         return(
-            <Document key={uuidv4()} number={element.number} clientName={element.clientName} issueDate={element.issueDate} issueStatus={element.issueStatus} openedModal={openedModal} setOpenedModal={setOpenedModal}/>
+            <Document key={uuidv4()}
+                number={element.number}
+                    clientName={element.clientName}
+                        issueDate={element.issueDate}
+                            issueStatus={element.issueStatus}
+                                openedModal={openedModal}
+                                    setOpenedModal={setOpenedModal}
+                                            setUrl={setUrl}
+                                                token={token}
+                                            />
         )
     });
 

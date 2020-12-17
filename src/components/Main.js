@@ -5,9 +5,7 @@ import Modal from "react-awesome-modal";
 import { ModalDocument } from './ModalDocument';
 
 //import PageNavigation from './PageNavigation';
-function closeModal(setOpenedModal){
-    setOpenedModal(false);
-}
+
 
 
 export default function Main({get_documents, token, userDetails}) {
@@ -19,6 +17,31 @@ export default function Main({get_documents, token, userDetails}) {
     const [docs, setDocs] = useState([ 
     ]);
     // /media/{name}.{ext}
+    function closeModal(setOpenedModal){
+        document.getElementById('main-table').style.animation = 'fadeOut 0.3s'
+        setDocs([]);
+        get_documents(token,'')
+                .then(res => res.json())
+                    .then(json => {
+                        console.log(json);
+                        let loadedData = json;
+                        loadedData = loadedData.filter((element)=>
+                            element.users[0].id === userDetails.id)
+                        let myDocuments = [];
+                        loadedData.forEach(element => {
+                            myDocuments.push({'number':element.number, 'clientName':`${userDetails.first_name + " " + userDetails.last_name}`, 'issueStatus': element.sign_status?"Подписан":"Ожидает подписания", "issueDate":(element.sign_date!==null)?element.sign_date:""});
+                        });
+                        setDocs(myDocuments);
+                        document.getElementById('main-table').style.animation = 'fadeIn 1.3s';
+                        setOpenedModal(false);
+                    })
+                    .catch(
+                    (error)=>{
+                        console.log(error);
+                    }
+                );
+        
+    }
 
     useEffect(() => {
         if(userDetails !== null){

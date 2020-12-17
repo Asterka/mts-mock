@@ -1,6 +1,5 @@
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import React from 'react'
-import Modal from 'react-awesome-modal';
+import React from 'react';
 
 function openModal(token, setOpenedModal, setUrl, number) {
     fetch(`http://3.23.57.97:8000/documents/1092349/`, {
@@ -13,7 +12,6 @@ function openModal(token, setOpenedModal, setUrl, number) {
         .then(json => {
             //Fix this
             setUrl(`http://3.23.57.97:8000/media/${"science.pdf"}`);
-            console.log(json);
             setOpenedModal(true);
         })
         .catch(

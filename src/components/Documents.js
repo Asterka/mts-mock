@@ -143,7 +143,7 @@ export default function Documents({query, docs, sortBy, currentPage, setSortBy, 
 
     return (
         <>
-            <table className="table">
+            <table className="table" id="main-table">
                 <thead>
                     <tr>
                     <td id="number">Nº<KeyboardArrowDownIcon id="sort-by-number" onClick={()=>sortBy==1?setSortBy(-1):setSortBy(1)}/></td>
@@ -156,11 +156,12 @@ export default function Documents({query, docs, sortBy, currentPage, setSortBy, 
                 <tbody>
                 {docsToDraw}
                 </tbody>
-                <tfoot>
-                <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={Math.ceil(queriedDocs.length/9)}/>
-                </tfoot>
+                
+                
             </table>
-
+            
+            <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} numberOfPages={Math.ceil(queriedDocs.length/9)}/>
+                
             
         </>
     )

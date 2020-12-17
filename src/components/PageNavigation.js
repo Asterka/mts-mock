@@ -4,16 +4,18 @@ import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 
 export default function PageNavigation({currentPage, setCurrentPage, numberOfPages}) {
     return (
-        <tr>
+        <tr className="level">
+            <div className="level-left" style={{marginTop: "56px"}}>
             <td>
                 <NavigateBeforeIcon onClick={()=>{currentPage <= 1?setCurrentPage(1):setCurrentPage(currentPage - 1)}}/>
             </td>
             <td>
-                <h3>{currentPage}</h3>
+                <h3 style={{margin: "30px 30px"}}>{currentPage}</h3>
             </td>
             <td>
                 <NavigateNextIcon onClick={()=>{currentPage >= numberOfPages?console.log("On the last page"):setCurrentPage(currentPage + 1)}}/>
             </td>
+            </div>
         </tr>
     )
 }

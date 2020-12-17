@@ -15,10 +15,11 @@ export const ModalDocument = ({url, token, fetch_documents}) => {
           file={url}
           onLoadSuccess={onDocumentLoadSuccess}
         >
+
         <Page pageNumber={pageNumber}></Page>
         </Document>
       </div>
-      <h3>Скачать договор</h3>
+      <button onClick={()=>{window.open(url)}}>Скачать договор</button>
     </div>
   );
 }

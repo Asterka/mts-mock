@@ -3,84 +3,47 @@ import SearchItemSection from "./SearchItemSection";
 import Documents from './Documents';
 import Modal from "react-awesome-modal";
 import { ModalDocument } from './ModalDocument';
-import {useCookies} from 'react-cookie';
 
 //import PageNavigation from './PageNavigation';
 function closeModal(setOpenedModal){
     setOpenedModal(false);
 }
-function fetchToken(uri, setTokenAvailable){
-    fetch(uri,{
-        method: 'post',
-        headers: {'Content-Type':'application/json'},
-        body: {
-            "first_name": "silly"
-        }}
-    )
-      .then(res => res.json())
-        .then(
-            (result) => {
-                setTokenAvailable(false);
-                console.log(result);
-            },
-            (error) => {
-            console.log("Something went wrong: " + error);
-         }
-      )
-}
-function fetchData(uri, setIsFetching){
-    setIsFetching(true);
-    fetch(uri)
-      .then(res => res.json())
-        .then(
-            (result) => {
-                setIsFetching(false);
-                console.log(result);
-            },
-            (error) => {
-            console.log("Something went wrong: " + error);
-         }
-      )
-}
 
-export default function Main() {
+
+export default function Main({get_documents, token, userDetails}) {
     const [query, setQuery] = useState("");
     const [sortBy, setSortBy] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [openedModal, setOpenedModal] = useState(false);
     const [isFetching, setIsFetching] = useState(true);
     const [tokenAvailable, setTokenAvailable] = useState(false);
-    const [cookies, setCookie, removeCookie] = useCookies(['csrftoken']);
 
     const [docs, setDocs] = useState([ 
-
-        {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"},
-
-        {number:"32654812672", clientName:"Лебедева Светлана Ивановна",issueDate:"",issueStatus:"Ожидает подписания"},
-
-        {number:"3265409529", clientName:"Веселов Роман Александрович",issueDate:"16.10.2020",issueStatus:"Подписан"},
-       
-        {number:"3265367895", clientName:"Росляков Михаил Игоревич",issueDate:"16.10.2020",issueStatus:"Подписан"},
-
-        {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"},
-
-        {number:"32654812672", clientName:"Лебедева Светлана Ивановна",issueDate:"",issueStatus:"Ожидает подписания"},
-
-        {number:"3265409529", clientName:"Веселов Роман Александрович",issueDate:"16.10.2020",issueStatus:"Подписан"},
-       
-        {number:"3265367895", clientName:"Росляков Михаил Игоревич",issueDate:"16.10.2020",issueStatus:"Подписан"},
-        
-        {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"},
-
-        {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"},
-
-        {number:"3265482010", clientName:"Николаев Владимир Петрович",issueDate:"",issueStatus:"Ожидает подписания"}
     ]);
+    // /media/{name}.{ext}
 
     useEffect(() => {
-        fetchToken("http://3.23.57.97/api-auth/login" , setTokenAvailable);
-        fetchData("http://3.23.57.97/documents", setIsFetching);
-    }, [])
+        if(userDetails !== null){
+            get_documents(token)
+            .then(res => res.json())
+                .then(json => {
+                    let loadedData = json;
+                    loadedData = loadedData.filter((element)=>
+                        element.users[0].id === userDetails.id)
+                    let myDocuments = [];
+                    loadedData.forEach(element => {
+                        myDocuments.push({'number':element.number, 'clientName':`${userDetails.first_name + " " + userDetails.last_name}`, 'issueStatus': element.sign_status?"Подписан":"Ожидает подписания", "issueDate":(element.sign_date!==null)?element.sign_date:""});
+                    });
+                    setDocs(myDocuments);
+                })
+                .catch(
+                (error)=>{
+                    console.log(error);
+                }
+                );
+        }
+    
+    }, [userDetails])
 
     return (
         <div className="main mx-6">

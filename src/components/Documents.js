@@ -24,6 +24,13 @@ function filterDocs (query, documents){
 }
 function sortDocs (sortBy, documents){
     let res = [];
+    let has_date = documents.filter((element)=>{
+        return element.issueDate !== "";
+    });
+    let has_no_date = documents.filter((element)=>{
+        return element.issueDate === "";
+    });
+
     switch(sortBy){
         case 0:
             return documents;
@@ -80,8 +87,25 @@ function sortDocs (sortBy, documents){
             console.log(res);
             return res;
         case 3://sort by issued ascending
-            res = documents.sort((a, b)=>{
-                let firstDate = a.issueDate.split('.');
+            res = has_date.sort((a, b)=>{
+            let firstDate = a.issueDate.split('.');
+                let secondDate = b.issueDate.split('.');
+                let dateA = Date(`${firstDate[2]}-${firstDate[1]}-${firstDate[0]}`)
+                let dateB = Date(`${secondDate[2]}-${secondDate[1]}-${secondDate[0]}`)
+                
+                if (dateA > dateB) {
+                    return 1;
+                }
+                if (dateA < dateB) {
+                    return -1;
+                }
+                return 0;
+        });
+        res = has_no_date.concat(res);
+        return res;
+        case -3://sort by issued ascending
+        res = has_date.sort((a, b)=>{
+            let firstDate = a.issueDate.split('.');
                 let secondDate = b.issueDate.split('.');
                 let dateA = Date(`${firstDate[2]}-${firstDate[1]}-${firstDate[0]}`)
                 let dateB = Date(`${secondDate[2]}-${secondDate[1]}-${secondDate[0]}`)
@@ -93,29 +117,13 @@ function sortDocs (sortBy, documents){
                     return -1;
                 }
                 return 0;
-            });
-
-            console.log(res);
-            return res;
-        case -3://sort by issued ascending
-        res = documents.sort((a, b)=>{
-            let firstDate = a.issueDate.split('.');
-            let secondDate = b.issueDate.split('.');
-            let dateA = Date(`${firstDate[2]}-${firstDate[1]}-${firstDate[0]}`)
-            let dateB = Date(`${secondDate[2]}-${secondDate[1]}-${secondDate[0]}`)
-            
-            if (dateA > dateB) {
-                return 1;
-            }
-            if (dateA < dateB) {
-                return -1;
-            }
-            return 0;
         });
-        console.log(res);
+        res = res.concat(has_no_date);
         return res;
-        
+        default:
+        break;
     }
+    
 }
 
 export default function Documents({query, docs, sortBy, currentPage, setSortBy, setCurrentPage, setQueriedDocs, openedModal, setOpenedModal, setUrl, token}) {
@@ -145,10 +153,10 @@ export default function Documents({query, docs, sortBy, currentPage, setSortBy, 
             <table className="table" id="main-table">
                 <thead>
                     <tr>
-                    <td id="number">Nº<KeyboardArrowDownIcon id="sort-by-number" onClick={()=>sortBy==1?setSortBy(-1):setSortBy(1)}/></td>
-                    <td id="first">Клиент<KeyboardArrowDownIcon id="sort-by-client" onClick={()=>sortBy==2?setSortBy(-2):setSortBy(2)}/></td>
-                    <td id="second">Подписание<KeyboardArrowDownIcon id="sort-by-issue" onClick={()=>sortBy==3?setSortBy(-3):setSortBy(3)}/></td>
-                    <td id="third">Статус<KeyboardArrowDownIcon id="sort-by-issue-date" onClick={()=>sortBy==3?setSortBy(-3):setSortBy(3)}/></td>
+                    <td id="number">Nº<KeyboardArrowDownIcon id="sort-by-number" onClick={()=>sortBy===1?setSortBy(-1):setSortBy(1)}/></td>
+                    <td id="first">Клиент<KeyboardArrowDownIcon id="sort-by-client" onClick={()=>sortBy===2?setSortBy(-2):setSortBy(2)}/></td>
+                    <td id="second">Подписание<KeyboardArrowDownIcon id="sort-by-issue" onClick={()=>sortBy===3?setSortBy(-3):setSortBy(3)}/></td>
+                    <td id="third">Статус<KeyboardArrowDownIcon id="sort-by-issue-date" onClick={()=>sortBy===3?setSortBy(-3):setSortBy(3)}/></td>
                     <td></td>
                     </tr>
                 </thead>

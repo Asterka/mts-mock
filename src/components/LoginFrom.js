@@ -1,6 +1,5 @@
 import {React, useState, useEffect} from 'react';
-import {useCookies} from 'react-cookie';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 function handle_name(e, setName){

@@ -16,6 +16,7 @@ import Main from "./Main";
 export default function AuthExample() {
   const [token, setToken] = useState('');
   const [userDetails, setUserDetails] = useState(null);
+  
   //Get documents
     function get_documents(token){
       return fetch(`http://3.23.57.97:8000/documents/`, {
@@ -95,7 +96,6 @@ function currentUser(token, setUserDetails){
           }
         );
 }
-//eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6IlRlc3QiLCJleHAiOjE2MDgyMDQ4MjUsImVtYWlsIjoiIn0.DBp9sxvtcp-_DlQ2cett3uXfBQa0fzEHh0yhtiKzK-g
 
 const authContext = createContext();
 
@@ -134,11 +134,9 @@ function useProvideAuth() {
       
   };
 
-  const signout = cb => {
-    return () => {
+  const signout = () => {
       setUser(null);
-      cb();
-    };
+      //TODO
   };
 
   return {

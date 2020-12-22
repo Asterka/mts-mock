@@ -2,7 +2,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: calc(100% - 3em);
     height: calc(6.25vh*10 + 112px); 
     min-height: 462px;
 }

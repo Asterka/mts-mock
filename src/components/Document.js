@@ -10,7 +10,6 @@ function openModal(token, setOpenedModal, setUrl, number) {
           }
         })
         .then(json => {
-            //Fix this
             setUrl(`http://3.23.57.97:8000/media/${"science.pdf"}`);
             setOpenedModal(true);
         })

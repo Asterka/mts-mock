@@ -22,8 +22,7 @@ function filterDocs (query, documents){
     }
     return res;
 }
-function sortDocs (sortBy, documents, setCurrentPage, setQueriedDocs){
-    //setCurrentPage(1);
+function sortDocs (sortBy, documents){
     let res = [];
     switch(sortBy){
         case 0:
@@ -125,7 +124,7 @@ export default function Documents({query, docs, sortBy, currentPage, setSortBy, 
     queriedDocs = sortDocs(sortBy, queriedDocs, setCurrentPage);
 
     let docsToDraw = queriedDocs.slice((currentPage-1)*9, (currentPage)*9 > queriedDocs.length - 1 ? queriedDocs.length: (currentPage)*9-1)
-    //some BS, TODO
+    
     docsToDraw = docsToDraw.map((element)=>{
         return(
             <Document key={uuidv4()}

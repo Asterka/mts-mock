@@ -4,7 +4,7 @@ import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 
 export default function PageNavigation({currentPage, setCurrentPage, numberOfPages}) {
     return (
-        <tr className="level">
+        <tr className="level" id="footer-pagination">
             <div className="level-left" style={{marginTop: "56px"}}>
             <td>
                 <NavigateBeforeIcon onClick={()=>{currentPage <= 1?setCurrentPage(1):setCurrentPage(currentPage - 1)}}/>

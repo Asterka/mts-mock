@@ -4,9 +4,6 @@ import Documents from './Documents';
 import Modal from "react-awesome-modal";
 import { ModalDocument } from './ModalDocument';
 
-//import PageNavigation from './PageNavigation';
-
-
 
 export default function Main({get_documents, token, userDetails}) {
     const [query, setQuery] = useState("");
@@ -16,9 +13,12 @@ export default function Main({get_documents, token, userDetails}) {
     const [url, setUrl] = useState("http://3.23.57.97:8000/media");
     const [docs, setDocs] = useState([ 
     ]);
-    // /media/{name}.{ext}
+    
     function closeModal(setOpenedModal){
-        document.getElementById('main-table').style.animation = 'fadeOut 0.3s'
+
+        document.getElementById('main-table').style.animation = 'fadeOut 0.5s'
+        document.getElementById('footer-pagination').style.animation = 'fadeOut 0.5s';
+
         setDocs([]);
         get_documents(token,'')
                 .then(res => res.json())
@@ -31,8 +31,9 @@ export default function Main({get_documents, token, userDetails}) {
                         loadedData.forEach(element => {
                             myDocuments.push({'number':element.number, 'clientName':`${userDetails.first_name + " " + userDetails.last_name}`, 'issueStatus': element.sign_status?"Подписан":"Ожидает подписания", "issueDate":(element.sign_date!==null)?element.sign_date:""});
                         });
+                        document.getElementById('main-table').style.animation = 'fadeIn 0.5s';
+                        document.getElementById('footer-pagination').style.animation = 'fadeIn 0.5s';
                         setDocs(myDocuments);
-                        document.getElementById('main-table').style.animation = 'fadeIn 1.3s';
                         setOpenedModal(false);
                     })
                     .catch(

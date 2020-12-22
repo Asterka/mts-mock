@@ -14,7 +14,6 @@
         font-family: "MTSSans";
         font-size: 32px;
         line-height: 36px;
-        padding-left: calc(#{$header_padding} - 0.25vh);
     }
     input{
         border: 2px solid #E2E5EB;
@@ -23,7 +22,7 @@
         position: relative;
         right: 32px;
         width: 40%;
-        margin-right: 56px;
+        margin-right: 1em;
         height: 44px;
 
         &:hover{

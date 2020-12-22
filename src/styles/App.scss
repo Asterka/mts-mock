@@ -1,13 +1,19 @@
 @import 
     './base/animations',
     './base/fonts';
+@import 
+    './utilities/variables';
 
 @import 
-    './components/modal-window',
+    './components/header__logo',
+    './components/header__level',
+    './components/main__horizontal',
     './components/react-pdf__Page',
+    './components/modal-window__document',
     './components/search_component';
 
 @import 
-    './layout/documents',
+    './layout/modal-window',
+    './layout/table',
     './layout/header',
     './layout/main';

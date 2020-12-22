@@ -1,0 +1,12 @@
+.modal-window{
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+    position: absolute;
+    padding: 1rem;
+    //TODO extract the element
+    span{
+        font-family: 'MTSSansReg' !important;
+        font-size: 16px !important;
+    }
+}

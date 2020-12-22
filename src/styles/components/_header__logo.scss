@@ -1,0 +1,10 @@
+.logo {
+    position: relative;
+    left: calc(#{$header_padding} - 0.78vh);
+    #logo {
+      position: relative;
+      width: auto;
+      height: 3.125vh;
+      min-height: 25px;
+    }
+  }

@@ -17,7 +17,7 @@ function filterDocs (query, documents){
     }
     else{
         res = documents.filter((element)=>
-            element.number.toLowerCase().indexOf(query) !== -1
+            (element.number+'').indexOf(query) !== -1
         )
     }
     return res;

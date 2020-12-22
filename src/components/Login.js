@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 import Header from "./Header";
-import LoginFrom from "./LoginFrom";
+import LoginForm from "./LoginForm";
 import Main from "./Main";
 
 export default function AuthExample() {
@@ -136,7 +136,7 @@ function useProvideAuth() {
 
   const signout = () => {
       setUser(null);
-      //TODO
+      //TODO IMPLEMENT SIGN OUT FUNCTIONALITY
   };
 
   return {
@@ -203,6 +203,6 @@ function LoginPage({setToken, setUserDetails}) {
   };
 
   return (
-    <LoginFrom login={login} setPassword={setPassword} setName={setName} name={name} password={password}/>
+    <LoginForm login={login} setPassword={setPassword} setName={setName} name={name} password={password}/>
   );
 }

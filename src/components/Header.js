@@ -13,9 +13,9 @@ const Header = ({useHistory, useAuth}) => {
     let auth = useAuth();
 
     return (
-
+    //TODO DIVIDE INTO SMALLER INDEPENDENT COMPONENTS
     <div className="container is-fluid header">
-        <div className="level is-mobile" style={{width:"100%"}}>
+        <div className="level is-mobile">
             <div className="level-left">
                 <div className="navbar-brand">
                     <a className="navbar-item" href="https://pagename.com">

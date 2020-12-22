@@ -16,7 +16,7 @@ function handle_submit(e, toDashboard, setToDashboard){
 
 
 
-function LoginFrom({login, setName, setPassword, name, password}) {
+function LoginForm({login, setName, setPassword, name, password}) {
 
     const [toDashboard, setToDashboard] = useState(false);
     
@@ -49,4 +49,4 @@ function LoginFrom({login, setName, setPassword, name, password}) {
     )
 }
 
-export default withRouter(LoginFrom);
+export default withRouter(LoginForm);

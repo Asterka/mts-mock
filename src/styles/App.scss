@@ -1,21 +1,13 @@
-@font-face {
-    font-family: 'MTSSans';
-    src: url('http://3.23.57.97/static/MTSSans-Bold.otf') format('opentype');
-}
-@font-face {
-    font-family: 'MTSSansReg';
-    src: url('http://3.23.57.97/static/MTSSans-Regular.otf') format('opentype');
-}
-*{
-    padding: 0;
-    margin: 0;
-    color: black;
-}
+@import 
+    './base/animations',
+    './base/fonts';
 
-@import 'documents';
-@import "header";
-@import 'search_component';
-@import 'main';
-@import 'react-pdf__Page';
-@import 'modal-window';
-@import 'animations';
+@import 
+    './components/modal-window',
+    './components/react-pdf__Page',
+    './components/search_component';
+
+@import 
+    './layout/documents',
+    './layout/header',
+    './layout/main';

@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+//Compile and import the main css file
 import './styles/App.scss';
 
 

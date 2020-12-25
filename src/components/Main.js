@@ -13,6 +13,7 @@ export default function Main({get_documents, token, userDetails}) {
     const [url, setUrl] = useState("http://3.23.57.97:8000/media");
     const [docs, setDocs] = useState([ 
     ]);
+    const [chosenDoc, setChosenDoc] = useState(-1);
     
     function closeModal(setOpenedModal){
 
@@ -82,10 +83,11 @@ export default function Main({get_documents, token, userDetails}) {
                                                     setOpenedModal={setOpenedModal}
                                                         setUrl={setUrl}
                                                             token={token}
+                                                                setChosenDoc={setChosenDoc}
                                                         />
           
             <Modal visible={openedModal} width="50%" height="80%" effect="fadeInUp" onClickAway={() => closeModal(setOpenedModal)}>
-                <ModalDocument url={url} token={token}/>
+                <ModalDocument url={url} token={token} setUrl={setUrl} chosenDoc={chosenDoc}/>
             </Modal>
         </div>
     )

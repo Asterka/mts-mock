@@ -126,7 +126,7 @@ function sortDocs (sortBy, documents){
     
 }
 
-export default function Documents({query, docs, sortBy, currentPage, setSortBy, setCurrentPage, setQueriedDocs, openedModal, setOpenedModal, setUrl, token}) {
+export default function Documents({query, docs, sortBy, currentPage, setSortBy, setCurrentPage, setQueriedDocs, openedModal, setOpenedModal, setUrl, token, setChosenDoc}) {
     
     let queriedDocs = filterDocs(query, docs, setQueriedDocs)
     queriedDocs = sortDocs(sortBy, queriedDocs, setCurrentPage);
@@ -144,6 +144,7 @@ export default function Documents({query, docs, sortBy, currentPage, setSortBy, 
                                     setOpenedModal={setOpenedModal}
                                             setUrl={setUrl}
                                                 token={token}
+                                                    setChosenDoc={setChosenDoc}
                                             />
         )
     });

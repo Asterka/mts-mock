@@ -36,18 +36,18 @@ const Header = ({useHistory, useAuth}) => {
                                         <div className="dropdown-trigger">
                                             <AccountBoxIcon aria-haspopup="true" aria-controls="dropdown-menu4"/>
                                         </div>
-                                        <div className="dropdown-menu"  style={{left: "-100px"}} id="dropdown-menu4" role="menu">
-                    
-                    <div className="dropdown-content">
-                      <div className="dropdown-item">
-                        <div className="menu">
-                          <p className="menu-label" onClick={()=>{ auth.signout(() => history.push("/login"))}}>
-                            Log out
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                                      
+                                      <div className="dropdown-menu" id="dropdown-menu4" role="menu">
+                                        <div className="dropdown-content">
+                                          <div className="dropdown-item">
+                                            <div className="menu">
+                                              <p className="menu-label" onClick={()=>{ auth.signout(() => history.push("/login"))}}>
+                                                Log out
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
 
                                     </div>
                     </div>

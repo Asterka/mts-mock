@@ -15,6 +15,7 @@ export const ModalDocument = ({url, token, chosenDoc, setUrl, fetch_documents, n
     setNumPages(numPages);
   }
   function showDoc(){
+    console.log(number)
       fetch(`http://3.23.57.97:8000/documents/${number}/`, {
           method: 'GET',
           headers: {
@@ -55,7 +56,6 @@ export const ModalDocument = ({url, token, chosenDoc, setUrl, fetch_documents, n
   }
 
   let modalButton = chosenDoc.issueStatus === "Подписан"?"Просмотреть":"Подписать";
-  
   return (
     <div className="modal-window">
       <div className="modal-window__document">
@@ -67,7 +67,7 @@ export const ModalDocument = ({url, token, chosenDoc, setUrl, fetch_documents, n
         <Page pageNumber={pageNumber}></Page>
         </Document>
       </div>
-      <button onClick={()=>{/*window.open(url)*/ modalButton[0]==="П"?generateDoc():showDoc()}}>{modalButton}</button>
+      <button onClick={()=>{/*window.open(url)*/ modalButton==="Подписать"?generateDoc():showDoc()}}>{modalButton}</button>
       <NavigateBeforeIcon onClick={()=>{pageNumber > 1? setPageNumber(pageNumber-1):setPageNumber(1)}}>-</NavigateBeforeIcon>
       <NavigateNextIcon onClick={()=>{numPages > pageNumber? setPageNumber(pageNumber+1):setPageNumber(pageNumber)}}>+</NavigateNextIcon>
     </div>

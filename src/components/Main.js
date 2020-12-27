@@ -10,9 +10,8 @@ export default function Main({get_documents, token, userDetails}) {
     const [sortBy, setSortBy] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [openedModal, setOpenedModal] = useState(false);
-    const [url, setUrl] = useState("http://3.23.57.97:8000/media");
-    const [docs, setDocs] = useState([ 
-    ]);
+    const [url, setUrl] = useState("http://3.23.57.97:8000/media/default.pdf");
+    const [docs, setDocs] = useState([]);
     const [chosenDoc, setChosenDoc] = useState(-1);
     
     function closeModal(setOpenedModal){

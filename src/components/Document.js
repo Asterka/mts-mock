@@ -32,8 +32,10 @@ function openModal(token, issueStatus, setOpenedModal, setUrl, number, setChosen
     
 }
 
-function closeModal(setOpenedModal) {
+function closeModal(setOpenedModal, setUrl,setChosenDoc) {
     setOpenedModal(false);
+    setUrl(`http://3.23.57.97:8000/media/default.pdf`);
+    setChosenDoc({"number": "0", 'issueStatus': "-"});
 }
 
 
@@ -51,7 +53,7 @@ export default function Document({number, clientName, issueDate, issueStatus, op
                     <div className="align-vertically">    
                         <div className="dropdown is-hoverable">
                             <div className="dropdown-trigger">
-                                <MoreVertIcon aria-haspopup="true" aria-controls="dropdown-menu2" onClick={openedModal===true?()=>{closeModal(setOpenedModal)}:()=>{openModal(token, issueStatus, setOpenedModal, setUrl, number, setChosenDoc)}}/>
+                                <MoreVertIcon aria-haspopup="true" aria-controls="dropdown-menu2" onClick={openedModal===true?()=>{closeModal(setOpenedModal, setUrl, setChosenDoc)}:()=>{openModal(token, issueStatus, setOpenedModal, setUrl, number, setChosenDoc)}}/>
                             </div>
 
                             <div className="dropdown-menu" id="dropdown-menu2" role="menu">

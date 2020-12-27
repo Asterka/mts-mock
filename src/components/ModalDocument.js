@@ -24,10 +24,15 @@ export const ModalDocument = ({url, token, chosenDoc, setUrl, fetch_documents, n
         })
         .then(res => res.json())
           .then(json => {
-              console.log(json);
-              setUrl(`http://3.23.57.97:8000/media/${json.uri}`);
-              
-          })
+            console.log(chosenDoc.issueStatus);
+              if(chosenDoc.issueStatus !== "Подписан"){
+                console.log("Not signed");
+                setUrl(`http://3.23.57.97:8000/media/default.pdf`)}
+              else{
+                setUrl(`http://3.23.57.97:8000/media/${chosenDoc.number}`);
+                
+              }
+              })
           .catch(
           (error)=>{
               console.log(error);
@@ -60,14 +65,14 @@ export const ModalDocument = ({url, token, chosenDoc, setUrl, fetch_documents, n
     <div className="modal-window">
       <div className="modal-window__document">
         <Document
-          file={url}
+          file={chosenDoc.issueStatus==="Подписан"?url:"http://3.23.57.97:8000/media/default.pdf"}
           onLoadSuccess={onDocumentLoadSuccess}
         >
 
         <Page pageNumber={pageNumber}></Page>
         </Document>
       </div>
-      <button onClick={()=>{/*window.open(url)*/ modalButton[0]==="П"?generateDoc():showDoc()}}>{modalButton}</button>
+      <button onClick={()=>{/*window.open(url)*/ modalButton==="Подписать" ? generateDoc(): showDoc()}}>{modalButton}</button>
       <NavigateBeforeIcon onClick={()=>{pageNumber > 1? setPageNumber(pageNumber-1):setPageNumber(1)}}>-</NavigateBeforeIcon>
       <NavigateNextIcon onClick={()=>{numPages > pageNumber? setPageNumber(pageNumber+1):setPageNumber(pageNumber)}}>+</NavigateNextIcon>
     </div>

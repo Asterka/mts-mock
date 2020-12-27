@@ -22,6 +22,12 @@
     
 }
 
+@keyframes spinner-border {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 
 // Cross-browsers opacity: @include opacity(0.5);
 @mixin opacity($opacity) {

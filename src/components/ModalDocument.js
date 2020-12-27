@@ -39,7 +39,6 @@ export const ModalDocument = ({url, token, chosenDoc, setUrl, fetch_documents, n
   }
 
   let modalButton = chosenDoc.issueStatus === "Подписан"?"Просмотреть":"Подписать";
-  
   return (
     <div className="modal-window">
       <div className="spinner-border" styles={{width: "3rem", height: "3rem"}} role="status">

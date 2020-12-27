@@ -5,30 +5,26 @@ function openModal(token, issueStatus, setOpenedModal, setUrl, number, setChosen
     setChosenDoc({"number": number, 'issueStatus': issueStatus});
     console.log("Number: " + number);
     setOpenedModal(true);
-    
-    if(issueStatus==="Подписан"){
-        console.log("Получаю адрес документа в базе");
-        //Get the signed link here
-        fetch(`http://3.23.57.97:8000/documents/${number}/`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `JWT ${token}`
-            }
-            })
-            .then(res => res.json())
-            .then(json => {
-                //TODO, add fetching only the needed document
-                console.log(json);
-                setUrl(`http://3.23.57.97:8000/media/${json.uri}`);
-                
-            })
-            .catch(
-            (error)=>{
-                console.log(error);
-            }
-            )
-    }
+    console.log(number);
+    //Get the signed link here
+    fetch(`http://3.23.57.97:8000/documents/${number}/`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `JWT ${token}`
+          }
+        })
+        .then(json => {
+            //TODO, add fetching only the needed document
+            console.log(json);
+            setUrl(`http://3.23.57.97:8000/media/${json.uri}`);
+            
+        })
+        .catch(
+        (error)=>{
+            console.log(error);
+        }
+        );
     
 }
 

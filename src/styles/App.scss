@@ -2,9 +2,14 @@
     './base/animations',
     './base/fonts';
 @import 
+    './utilities/visually-hidden',
     './utilities/variables';
 
+@import
+    './helpers/visually-hidden';
+
 @import 
+    './components/success_checkmark',
     './components/spinner',
     './components/dropdown',
     './components/header__logo',

@@ -14,6 +14,7 @@ function openModal(token, issueStatus, setOpenedModal, setUrl, number, setChosen
             'Authorization': `JWT ${token}`
           }
         })
+        .then(res => res.json())
         .then(json => {
             //TODO, add fetching only the needed document
             console.log(json);
